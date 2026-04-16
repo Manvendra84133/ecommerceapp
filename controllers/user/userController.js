@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const cloudinary = require("../../Cloudinary/cloudinary");
 
 exports.Register = async (req, res) => {
-  console.log("admin router /register api called");
+  console.log("user router /register api called");
   console.log("req body is => ", req.body);
   console.log("req file is => ", req.file);
   
