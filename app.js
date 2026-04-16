@@ -10,12 +10,15 @@ const port = 4009
 app.use(cors())
 app.use(express.json());
 
-//admin routes
+//ADMIN ROUTES
 const adminAuthroutes = require("./routes/admin/adminAuthRoutes")
 app.use("/adminauth/api", adminAuthroutes);
 
+//USER ROUTES
+const userAuthroutes = require("./routes/user/userAuthRoutes")
+app.use("/userauth/api", userAuthroutes);
 
-
+// DEFAULT ROUTE
 app.get('/', (req, res) => {
   res.status(200).json({ message: "server start" })
 })

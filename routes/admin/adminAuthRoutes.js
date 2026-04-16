@@ -1,17 +1,18 @@
 const express = require("express");
 const router = new express.Router();
+
+const adminAuthController = require("./../../controllers/admin/adminControllers");
+const adminUpload = require("./../../multerconfig/admin/adminStorageConfig");
 const adminauthenticate = require("../../middleware/admin/adminauthenticate");
 
-const adminAuthcontroller = require('../../controllers/admin/adminControllers');
-const adminUpload = require("../../multerconfig/admin/adminStorageConfig");
+router.post(
+  "/register",
+  adminUpload.single("admin_profile"),
+  adminAuthController.Register,
+);
 
-//admin auth routes
-router.post("/register", adminUpload.single("admin_profile"), adminAuthcontroller.Register);
-router.post("/login", adminAuthcontroller.login);
-router.get("/logout", adminauthenticate, adminAuthcontroller.logout);
+router.post("/login", adminAuthController.Login);
+router.get("/adminverify", adminauthenticate, adminAuthController.AdminVerify);
+router.get("/logout", adminauthenticate, adminAuthController.Logout);
 
-//admin verify
-router.get("/adminverify", adminauthenticate, adminAuthcontroller.AdminVerify)
-
-
-module.exports = router
+module.exports = router;
