@@ -85,7 +85,7 @@ exports.userVerify = async (req, res) => {
   try {
     const verifyAdmin = await userDB.findOne({ _id: req.userId });
     res.status(200).json(verifyAdmin);
-    console.log("Admin verified success");
+    console.log("User verified success");
   } catch (error) {
     console.log("error in admin verification=> ", error);
   }

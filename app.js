@@ -11,12 +11,16 @@ app.use(cors())
 app.use(express.json());
 
 //ADMIN ROUTES
-const adminAuthroutes = require("./routes/admin/adminAuthRoutes")
-app.use("/adminauth/api", adminAuthroutes);
+const adminAuthRoutes = require("./routes/admin/adminAuthRoutes")
+app.use("/adminauth/api", adminAuthRoutes);
 
 //USER ROUTES
-const userAuthroutes = require("./routes/user/userAuthRoutes")
-app.use("/userauth/api", userAuthroutes);
+const userAuthRoutes = require("./routes/user/userAuthRoutes")
+app.use("/userauth/api", userAuthRoutes);
+
+//PRODUCT ROUTES
+const productroutes = require("./routes/products/productroutes")
+app.use("/product/api", productroutes)
 
 // DEFAULT ROUTE
 app.get('/', (req, res) => {

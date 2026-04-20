@@ -46,7 +46,7 @@ adminSchema.methods.generateAuthToken = async function () {
     await this.save();
     return newtoken;
   } catch (error) {
-    res.status(400).json({ error: error });
+    throw new Error(error.message);
   }
 };
 
