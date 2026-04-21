@@ -12,5 +12,10 @@ router.get("/getcategory", productController.getCategory);
 // product routes
 router.post("/addProducts", [adminauthenticate, productUpload.single("productimage")], productController.AddProducts);
 router.get("/getProducts", productController.getAllProducts)
+router.get("/getSingleProduct/:productid", productController.getSingleProduct);
+router.delete("/products/:productid", adminauthenticate, productController.DeleteProducts);
+
+// new latest arrival products
+router.get("/getLatestProducts", productController.getLatestProducts)
 
 module.exports = router;
