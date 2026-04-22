@@ -37,7 +37,8 @@ exports.getCategory = async (req, res) => {
 
 exports.AddProducts = async (req, res) => {
   try {
-    const { productname, price, discount, quantity, description, categoryid } = req.body;
+    const { categoryid } = req.query;
+    const { productname, price, discount, quantity, description } = req.body;
     const file = req.file ? req.file.path : "";
 
     if (!productname || !price || !discount || !quantity || !description || !categoryid) {
