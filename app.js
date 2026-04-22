@@ -22,6 +22,10 @@ app.use("/userauth/api", userAuthRoutes);
 const productroutes = require("./routes/products/productroutes")
 app.use("/product/api", productroutes)
 
+app.get('', (req, res) => {
+  
+})
+
 // DEFAULT ROUTE
 app.get('/', (req, res) => {
   res.status(200).json({ message: "server start" })
