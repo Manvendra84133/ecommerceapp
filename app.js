@@ -22,9 +22,9 @@ app.use("/userauth/api", userAuthRoutes);
 const productroutes = require("./routes/products/productroutes")
 app.use("/product/api", productroutes)
 
-app.get('', (req, res) => {
-  
-})
+// CART ROUTES
+const cartsroutes = require("./routes/carts/cartsroutes") 
+app.use("/carts/api", cartsroutes)
 
 // DEFAULT ROUTE
 app.get('/', (req, res) => {
